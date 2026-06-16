@@ -582,9 +582,9 @@ function Guide({ state, onToggleObj, addXP }) {
     setQuizLoading(q => ({...q, [key]: true}));
     const lvlInstr = state.userLevel === "advanced" ? "Niveau avancé, situations complexes." : state.userLevel === "intermediate" ? "Niveau intermédiaire." : "Niveau accessible pour débutants.";
     try {
-      const resp = await fetch("/api/claude", {
+      const resp = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", "x-api-key": "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", "anthropic-version": "2023-06-01"},
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
@@ -825,9 +825,9 @@ function Exam({ state, addXP, onExamDone }) {
     const topics = THEMES[theme];
     const lvlInstr = state.userLevel === "advanced" ? "Niveau avancé, situations complexes." : state.userLevel === "intermediate" ? "Niveau intermédiaire." : "Niveau accessible.";
     try {
-      const resp = await fetch("/api/claude", {
+      const resp = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", "x-api-key": "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", "anthropic-version": "2023-06-01"},
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
@@ -999,9 +999,9 @@ function Sprint15({ state, addXP }) {
     const t = SPRINT_THEMES.find(t => t.id === theme);
     const lvl = state.userLevel === "advanced" ? "Niveau avancé, situations complexes." : state.userLevel === "intermediate" ? "Niveau intermédiaire." : "Niveau accessible.";
     try {
-      const resp = await fetch("/api/claude", {
+      const resp = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", "x-api-key": "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", "anthropic-version": "2023-06-01"},
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
